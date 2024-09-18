@@ -1,0 +1,9 @@
+{% load admin_tags %}
+<div class="filter">
+    <span class="filter-title">{{ title }}</span>
+    <div style="display: flex; flex-wrap: wrap;">
+        {% for key, val in lookups %}
+            <a href="?{{ parameter_name }}={{ key }}" style="margin: 5px;">{{ val }}</a>
+        {% endfor %}
+    </div>
+</div>

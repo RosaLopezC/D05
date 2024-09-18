@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Stock</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}"> 
+</head>
+<body>
+    <h1>Actualizar Stock de Productos</h1>
+    <form method="post">
+    {% csrf_token %}
+    {% for producto in productos %}
+        <label for="nuevo_stock_{{ producto.id }}">{{ producto.nombre }}:</label>
+        <input type="number" id="nuevo_stock_{{ producto.id }}" name="nuevo_stock_{{ producto.id }}" value="{{ producto.stock }}">
+    {% endfor %}
+    <button type="submit">Actualizar Stock</button>
+</form>
+    <a href="{% url 'admin:tienda_producto_changelist' %}">Volver a la lista de productos</a>
+</body>
+</html>

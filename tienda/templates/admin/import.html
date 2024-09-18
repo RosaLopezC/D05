@@ -1,0 +1,13 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block content %}
+<h1>Importar {{ opts.verbose_name }}</h1>
+<br>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br>
+    <input type="file" name="file" required>
+    <button type="submit">Importar</button>
+</form>
+<a href="{% url 'admin:index' %}">Regresar</a>
+{% endblock %}
